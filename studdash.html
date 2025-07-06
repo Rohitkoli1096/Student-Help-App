@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Helper - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to top right, #e8f5e9, #f3e5f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .phone {
+            width: 360px;
+            height: 720px;
+            background: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #6a1b9a, #8e24aa);
+            padding: 30px 20px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .user-greet {
+            position: absolute;
+            bottom: 8px;
+            right: 20px;
+            font-size: 12px;
+            color: #ffe0ff;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            overflow-y: auto;
+        }
+        
+        .card {
+            background: #f3e5f5;
+            padding: 14px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+        }
+        
+        .card:hover {
+            background: #ba68c8;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            background: #eee;
+            padding: 12px;
+            font-size: 12px;
+            text-align: center;
+            color: #777;
+        }
+        
+        .floating-btn {
+            position: absolute;
+            right: 20px;
+            bottom: 80px;
+            width: 50px;
+            height: 50px;
+            background: #8e24aa;
+            color: white;
+            font-size: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .floating-btn:hover {
+            background: #6a1b9a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone">
+        <div class="header">
+            🎓 Student Dashboard
+            <div class="user-greet">👋 Hello, Student</div>
+        </div>
+        <div class="content">
+            <div class="card" onclick="location.href='quiz.html'" style="background-color: rgb(255, 113, 120);">🧠 Quiz<br>Practice</div>
+            <div class="card" onclick="location.href='booktrac.html'" style="background-color: rgb(196, 168, 117);">📚 Study<br>Library</div>
+            <div class="card" onclick="location.href='timer.html'" style="background-color: rgb(0, 255, 179);">⏱️ Focus<br>Timer</div>
+            <div class="card" onclick="location.href='reminder.html'" style="background-color: rgb(248, 188, 76);">📅 Task<br>Reminders</div>
+            <div class="card" onclick="location.href='todo.html'" style="background-color: rgb(221, 141, 217);">✅ To-Do<br>Goals</div>
+            <div class="card" onclick="location.href='exam.html'" style="background-color: rgb(0, 162, 255);">💬 Exam <br>Dates </div>
+            <div class="card" onclick="location.href='todo.html'" style="background-color: rgb(104, 185, 11);">✅ Get <br>Syllabus</div>
+            <div class="card" onclick="location.href='subnotes.hmtl.html'" style="background-color: orange;">💬 Get<br>Notes</div>
+        </div>
+        <div class="floating-btn" title="Log out" onclick="logout()">⎋</div>
+        <div class="footer">v1.0 © 2025 | EduTech Co.</div>
+    </div>
+
+    <script>
+        function logout() {
+            alert("You have been logged out.");
+            location.href = 'login.html';
+        }
+    </script>
+</body>
+
+</html>
