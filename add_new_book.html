@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfcf9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    /* Upload Box */
+    .upload {
+      border: 2px dashed #ccc;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #fafafa;
+      color: #666;
+      transition: border 0.3s;
+    }
+    .upload:hover {
+      border: 2px dashed #2e6d3f;
+    }
+    .upload img {
+      max-width: 150px;
+      max-height: 200px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto 10px;
+      object-fit: cover;
+    }
+    .upload input {
+      display: none;
+    }
+
+    /* Delivery Buttons */
+    .delivery {
+      display: flex;
+      gap: 10px;
+    }
+    .delivery button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #e5e5e5;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s;
+    }
+    .delivery button.active {
+      background: #2e6d3f;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Save Button */
+    .save {
+      background: #2e6d3f;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Add New Book</h2>
+  <form id="bookForm">
+    <!-- Upload Cover Photo -->
+    <label class="upload">
+      <img id="preview" src="" alt="" style="display:none;">
+      <span id="uploadText">+ Upload cover photo</span>
+      <input type="file" accept="image/*" onchange="previewImage(event)">
+    </label>
+
+    <!-- Book Details -->
+    <input type="text" id="title" placeholder="Title" required>
+    <input type="text" id="author" placeholder="Author" required>
+    <select id="condition" required>
+      <option value="">Select Condition</option>
+      <option value="used">Used</option>
+      <option value="new">New</option>
+    </select>
+    <input type="number" id="price" placeholder="Price" required>
+
+    <!-- Delivery Options -->
+    <div class="delivery">
+      <button type="button" onclick="selectDelivery(this)">Shipping</button>
+      <button type="button" onclick="selectDelivery(this)">Pickup</button>
+    </div>
+
+    <!-- Save Button -->
+    <button type="submit" class="save">Save</button>
+  </form>
+
+  <script>
+    let selectedDelivery = "";
+
+    // Image Upload Preview
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        const img = document.getElementById("preview");
+        img.src = reader.result;
+        img.style.display = "block";
+        document.getElementById("uploadText").style.display = "none";
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Delivery Selection
+    function selectDelivery(button) {
+      document.querySelectorAll(".delivery button").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      selectedDelivery = button.innerText;
+    }
+
+    // Form Submission (Frontend only for now)
+    document.getElementById("bookForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const condition = document.getElementById("condition").value;
+      const price = document.getElementById("price").value;
+
+      if (!selectedDelivery) {
+        alert("Please select a delivery option!");
+        return;
+      }
+
+      // Just showing collected data for now
+      alert("Book Added:\n" +
+        "Title: " + title + "\n" +
+        "Author: " + author + "\n" +
+        "Condition: " + condition + "\n" +
+        "Price: $" + price + "\n" +
+        "Delivery: " + selectedDelivery
+      );
+    });
+  </script>
+</body>
+</html>
