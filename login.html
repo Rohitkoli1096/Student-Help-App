@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Old Book App</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfcf9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Top Header */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #ffb56b, #ff926b);
+      border-bottom-left-radius: 60% 30%;
+      border-bottom-right-radius: 60% 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(255, 255, 255);
+      font-size: 29px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 380px;
+      background: #fff;
+      padding: 35px 25px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      top: 120px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      color: #2e6d3f;
+      font-size: 24px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      text-align: left;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .input-group input {
+      width: 85%;
+      padding: 14px 45px 14px 15px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 15px;
+      background: #fafafa;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #2e6d3f;
+      outline: none;
+      background: #fff;
+    }
+
+    .input-group span {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #2e6d3f;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-btn {
+      background: #2e6d3f;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #245630;
+      transform: scale(1.03);
+    }
+
+    .extra-links {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .extra-links a {
+      color: #2e6d3f;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 8px;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gradient Header -->
+  <div class="header">
+    📚 Old Book App
+  </div>
+
+  <!-- Login Card -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password" required>
+        <span onclick="togglePassword()">Show</span>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="extra-links">
+      <a href="#">Forgot Password?</a> | 
+      <a href="resister.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    // Show/Hide password toggle
+    function togglePassword() {
+      const pwdField = document.getElementById("password");
+      const toggle = document.querySelector(".input-group span");
+      if (pwdField.type === "password") {
+        pwdField.type = "text";
+        toggle.innerText = "Hide";
+      } else {
+        pwdField.type = "password";
+        toggle.innerText = "Show";
+      }
+    }
+
+    // Dummy login (replace later with backend auth)
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      alert("Logged in as: " + email);
+      window.location.href = "home.html"; 
+    });
+  </script>
+</body>
+</html>
