@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding-bottom:60px; }
+    .container { padding:15px; }
+    .book-card { background:#fff; padding:15px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-bottom:15px; display:flex; gap:15px; align-items:center; }
+    .book-card img { width:70px; height:100px; object-fit:cover; border-radius:8px; }
+    .bottom-nav { position:fixed; bottom:0; left:0; right:0; height:60px; background:#fff; display:flex; justify-content:space-around; align-items:center; border-top:1px solid #ccc; }
+    .bottom-nav a { text-align:center; color:#666; font-size:12px; text-decoration:none; flex:1; padding:5px 0; }
+    .bottom-nav a span { display:block; font-size:24px; }
+    .active { color:#2e6d3f; background:#eaf5ec; border-radius:12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Wishlist ❤️</h2>
+    <div class="book-card">
+      <img src="https://covers.openlibrary.org/b/id/11153275-L.jpg" alt="1984">
+      <div>
+        <h3>1984</h3>
+        <p>George Orwell</p>
+        <p>₹199</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="bottom-nav">
+    <a href="home.html" class="active">
+      <span class="material-icons">home</span>
+      Home
+    </a>
+    <a href="add_new_book.html">
+      <span class="material-icons">add_circle</span>
+      Add
+    </a>
+    <a href="wishlist.html">
+      <span class="material-icons">favorite</span>
+      Wishlist
+    </a>
+    <a href="profile.html">
+      <span class="material-icons">person</span>
+      Profile
+    </a>
+  </div>
+</body>
+</html>
