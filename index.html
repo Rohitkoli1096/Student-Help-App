@@ -1,196 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>I-BOOK Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        body {
-            height: 100vh;
-            background: linear-gradient(to bottom, #ffffff, #a5c5c1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        .header {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 45%;
-            background: #004D40;
-            border-bottom-left-radius: 100% 50%;
-            border-bottom-right-radius: 100% 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: #fff;
-            z-index: 0;
-        }
-        
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .header p {
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        
-        .login-container {
-            position: relative;
-            z-index: 1;
-            margin-top: 48vh;
-            background-color: #fff;
-            width: 90%;
-            max-width: 350px;
-            border-radius: 20px;
-            padding: 25px 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .login-container h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #00796B;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .login-container input {
-            width: 100%;
-            padding: 12px 14px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            font-size: 14px;
-        }
-        
-        .login-container a {
-            font-size: 12px;
-            color: #00796B;
-            text-decoration: none;
-            display: block;
-            text-align: right;
-            margin-top: 6px;
-        }
-        
-        .login-container button {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 12px;
-            background-color: #00796B;
-            color: #fff;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 15px;
-        }
-        
-        .social-icons img {
-            width: 36px;
-            height: 36px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-        
-        @media (max-height: 600px) {
-            .header {
-                height: 35%;
-            }
-            .login-container {
-                margin-top: 38vh;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Old Book Selling App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf7f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .icon {
+      font-size: 70px;
+      margin-bottom: 25px;
+    }
+    h1 {
+      color: #2e6d3f;
+      font-size: 30px;
+      margin: 0;
+    }
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    .image {
+      margin-top: 40px;
+    }
+    .image img {
+      width: 120px;
+    }
+  </style>
+  <script>
+    
+    setTimeout(function(){
+      window.location.href = "login.html";
+    }, 5000);
+  </script>
 </head>
-
 <body>
+  <div class="icon">📚</div>
+  <h1>Old Book Selling App</h1>
+  <p>Buy and sell old books</p>
 
-    <div class="header">
-        <h1>I-BOOK</h1>
-        <p>UITM DIGITAL LIBRARY</p>
-    </div>
-
-    <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" placeholder="Student ID" id="studentId">
-        <input type="password" placeholder="Password" id="password">
-        <a href="#">Forget the password?</a>
-        <button onclick="login()">LOGIN</button>
-
-        <div class="social-icons">
-            <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" title="Login with Facebook">
-            <img src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkIn" title="Login with LinkedIn">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqelRZSoukSwbQFJaxMyBJ8g/L700gwA0BUinkcoh4pqC4GN9ZUY-iqWQSurap-CAU" alt="Pinterest" title="Login with Pinterest">
-        </div>
-    </div>
-
-    <script>
-        function login() {
-            const id = document.getElementById("studentId").value.trim().toLowerCase();
-            const pass = document.getElementById("password").value.trim().toLowerCase();
-
-            const correctID = "i";
-            const correctPass = "pass";
-
-            if (!id || !pass) {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Oops!',
-                    text: 'Please enter both Student ID and Password.',
-                    confirmButtonColor: '#00796B'
-                });
-                return;
-            }
-
-            if (id === correctID && pass === correctPass) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Login Successful!',
-                    text: 'Welcome to I-BOOK',
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    localStorage.setItem("iBookUser", JSON.stringify({
-                        id,
-                        pass
-                    }));
-                    window.location.href = "studdash.html";
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid Credentials',
-                    text: 'Student ID or Password is incorrect.',
-                    confirmButtonColor: '#d33'
-                });
-            }
-        }
-    </script>
-
+  <div class="image">
+    <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Books">
+  </div>
 </body>
-
 </html>
